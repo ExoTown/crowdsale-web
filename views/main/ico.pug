@@ -1,0 +1,15 @@
+case ICOSTATUS.CURRENT
+    when ICOSTATUS.BEFORE_PRIVATE
+        include ico/before_private.pug
+    when ICOSTATUS.PRIVATE
+        include ico/private.pug
+    when ICOSTATUS.BEFORE_PRE
+        include ico/before_presale.pug
+    when ICOSTATUS.PRE
+        include ico/presale.pug
+    when ICOSTATUS.BEFORE_PUBLIC
+        include ico/before_public.pug
+    when ICOSTATUS.PUBLIC
+        include ico/public.pug
+    when ICOSTATUS.AFTER
+        include ico/after.pug

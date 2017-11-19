@@ -1,0 +1,63 @@
+-
+    var ICOSTATUS = {
+        BEFORE_PRIVATE: -1,
+        PRIVATE: 1,
+        BEFORE_PRE: -2,
+        PRE: 2,
+        BEFORE_PUBLIC: -3,
+        PUBLIC: 3,
+        AFTER: 4,
+        CURRENT: undefined
+    };
+
+
+
+    var now = new Date(),
+        _now = now.getTime();
+
+
+    var _priv = {},
+        _pre = {},
+        _pub = {};
+
+
+    _priv.start = (new Date(crowdsale.priv.start)).getTime();
+    _priv.end = (new Date(crowdsale.priv.end)).getTime();
+
+    _pre.start = (new Date(crowdsale.presale.start)).getTime();
+    _pre.end = (new Date(crowdsale.presale.end)).getTime();
+
+    _pub.start = (new Date(crowdsale.pub.start)).getTime();
+    _pub.end = (new Date(crowdsale.pub.end)).getTime();
+
+    var isBetween = function(c, a, b) {
+        return c >= a && c <= b;
+    };
+    var nowBetween = function(a, b) {
+        return isBetween(_now, a, b);
+    };
+
+    if (nowBetween(0, _priv.start)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.BEFORE_PRIVATE;
+    } else if (nowBetween(_priv.start, _priv.end)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.PRIVATE;
+    } else if (nowBetween(_priv.end, _pre.start)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.BEFORE_PRE;
+    } else if (nowBetween(_pre.start, _pre.end)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.PRE;
+    } else if (nowBetween(_pre.end, _pub.start)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.BEFORE_PUBLIC;
+    } else if (nowBetween(_pub.start, _pub.end)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.PUBLIC;
+    } else if (nowBetween(_pub.end, Infinity)) {
+        ICOSTATUS.CURRENT = ICOSTATUS.AFTER;
+    }
+
+    ICOSTATUS.CURRENT = ICOSTATUS.PRIVATE;
+    console.log('ICO status', ICOSTATUS.CURRENT);
+
+    var nowDateObject = new Date();
+    var nowDateTime = nowDateObject.getTime();
+    var hoursPassed = nowDateTime - _priv.start;
+    var dayOfICO = Math.floor(hoursPassed / 1000 / 60 / 60 / 24);
+    console.log('day of ico: ' + dayOfICO);

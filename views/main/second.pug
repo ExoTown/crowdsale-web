@@ -1,0 +1,47 @@
+mixin teammember
+    div(class="4u 6u(narrow) 12u(mobile)").team-member
+        if block
+            block
+
+// Second
+section#second.main
+    header
+        .container
+            h2
+                include exotown.pug
+                |  staff
+            p
+                | All the team members of
+                |
+                |
+                include exotown.pug
+                |  are experienced reptile keepers.
+
+
+    .content.dark.style2
+        .container
+            .row
+                +teammember
+                    img(src='images/pic01.jpg', alt='')
+                    h3 Vihtori Mallat
+                    p Founder and CEO
+                +teammember
+                    img(src='images/pic04.jpg', alt='')
+                    h3 Leonid Volkov
+                    p CTO
+                +teammember
+                    img(src='images/pic02.jpg', alt='')
+                    h3 Polina Matveeva
+                    p Head breeder
+                +teammember
+                    img(src='images/pic03.jpg', alt='')
+                    h3 Ivan Moshkov
+                    p Accountant
+                +teammember
+                    img(src='images/pic05.jpg', alt='')
+                    h3 Ekaterina Danilova
+                    p Keeper
+                +teammember
+                    img(src='images/pic06.jpg', alt='')
+                    h3 Alexander N.
+                    p Terrariums maker

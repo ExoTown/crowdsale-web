@@ -1,0 +1,41 @@
+- var progressPercents = Math.floor(stats.stageEtherRaised / stageGoal * 1000) / 10;
+.row
+    div(class="12u")
+        h3= ico_crowdsale_stage
+        .ico-progress-bar-wrapper
+            .ico-progress-bar
+                .ico-progress-bar-progress(style="width: " + progressPercents + "%")
+        .ico-funds-raised.ico-progress-terms
+            span.ico-progress-big.js-eth-raised= Math.floor(stats.stageEtherRaised * 100) / 100
+            br
+            span.ico-progress-small.eth-goal of
+                |
+                |
+                = stageGoal
+                |  ETH goal
+        .ico-backers.ico-progress-terms
+            span.ico-progress-big.js-eth-backers= stats.ownerCount - 1
+            br
+            span.ico-progress-small.eth-backers backers
+        .ico-counter.ico-progress-terms
+            span.ico-progress-big.js-ico-counter(data-countdown=ico_countdown)
+            br
+            span.ico-progress-small.ico-counter-text to go
+        .ico-coins.ico-progress-terms
+            span.ico-progress-big.js-ico-coins
+                = Math.floor(stats.stageSoldTokens)
+                |  of
+                |
+                |
+                = stageHardCap
+            br
+            span.ico-progress-small tokens sold at this stage
+        .ico-coins.ico-progress-terms
+            span.ico-progress-big
+                = Math.floor(stats.tokensSold)
+            br
+            span.ico-progress-small overall tokens sold
+        .ico-contribute
+            div.button-contribute Contribute
+            div(style="text-align: center; font-size: 0.8em; margin: 2em 0")
+                a(target="blank" href="https://t.me/exotown_ico") Join our Telegram channel

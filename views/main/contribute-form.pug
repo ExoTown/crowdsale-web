@@ -1,0 +1,61 @@
+style.
+    .contribute-form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.4);
+        /*border: 5px solid red;*/
+        /*box-sizing: border-box;*/
+    }
+    .c-f-window {
+        background: white;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        padding: 20px;
+        max-width: 80%;
+
+        text-align: center;
+    }
+    .contract-address {
+        padding: 10px;
+        margin: 20px 0;
+        border: 1px solid
+    }
+    .copy-address {
+        cursor: pointer;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+div.contribute-form#contribute-form(style="display: none")
+    .c-f-window
+        h1 Thanks for participating!
+        p.text-center Send ETH to this contract address
+
+        div.contract-address
+            span.js-contract-address= config.web3.contract_ico
+            |
+            |
+            a.js-copy-address.copy-address Copy
+
+        p(style="font-size: 0.8em") You may use any wallet that supports ERC-20 tokens. We recommend
+            |
+            |
+            a(href="https://www.myetherwallet.com/?to=" + config.web3.contract_ico + "&value=10&gaslimit=150000#send-transaction" target="_blank") MyEtherWallet
+            br
+            <strong>Do not</strong> send ETH directly from exchanges (Kraken, Poloniex, Coinbase, etc.), multi-sig wallets, or from other smart contracts, as you will not be able to access your SNEK.
+
+        p(style="font-size: 0.8em") By sending ETH you confirm that you have read and accepted our
+            |
+            |
+            <a href="/terms.pdf" target="_blank">Terms and Conditions</a>
+
+        div
+            a.button.button-contribute-close Close

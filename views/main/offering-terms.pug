@@ -1,0 +1,77 @@
+-
+    var otClassName = '';
+case ICOSTATUS.CURRENT
+    when ICOSTATUS.BEFORE_PRIVATE
+    when ICOSTATUS.PRIVATE
+        - otClassName = 'offer-private';
+    when ICOSTATUS.BEFORE_PRE
+    when ICOSTATUS.PRE
+        - otClassName = 'offer-pre';
+    when ICOSTATUS.BEFORE_PUBLIC
+    when ICOSTATUS.PUBLIC
+    when ICOSTATUS.AFTER
+        - otClassName = 'offer-public';
+
+.row#offering-terms(class=otClassName)
+    div(class="12u")
+        h3 Offering terms
+    div(class="6u 12u(mobile)").offer-hide-pre.offer-hide-public
+        h2 Private sale
+        div(style="font-size: 0.8em")
+            ul
+                li November 20th — November 30th
+                li Pricing: 1 ETH =
+                    |
+                    |
+                    = crowdsale.priv.price
+                    |  SNEK
+                li Goal:
+                    |
+                    |
+                    = crowdsale.priv.goal
+                    |  ETH
+                li 2,400,000 SNEK to be sold at Private sale
+
+    div(class="6u 12u(mobile)").offer-hide-private.offer-hide-public
+        h2 Public pre-sale
+        div(style="font-size: 0.8em")
+            ul
+                li December 1st — December 21st
+                li Pricing: 1 ETH =
+                    |
+                    |
+                    = crowdsale.presale.price
+                    |  SNEK
+                li Goal:
+                    |
+                    |
+                    = crowdsale.presale.goal
+                    |  ETH
+                li 3,600,000 SNEK to be sold at Public pre-sale
+
+    div(class="6u 12u(mobile)").offer-hide-private.offer-hide-pre
+        h2 Public sale
+        div(style="font-size: 0.8em")
+            ul
+                li January 19th — March 15th
+                li Pricing: 1 ETH =
+                    |
+                    |
+                    = crowdsale.pub.price
+                    |  SNEK
+                li Goal:
+                    |
+                    |
+                    = crowdsale.pub.goal
+                    |  ETH
+                li 10,000,000 SNEK to be sold at Public sale
+
+    div(class="6u")#reveal-offering-terms
+        a.js-reveal-offering-terms(href="#") See all
+    div(class="12u" style="font-size: 0.8em")
+        | SNEK is an Ethereum ERC-20 token.
+        br
+        include exotown.pug
+        |  redeems and burns SNEK tokens by 25% of its profit.
+        br
+        | Exchanges: to be announced
