@@ -40,14 +40,22 @@ section#faq.main
                         li 300 ETH: +7% tokens
                         li 500 ETH: +10% tokens
 
-            +qa
-                +q How can I see my tokens?
-                +a You should add a custom token.
-                    ul
-                        li Symbol: SNEK
-                        li Token address: 0xfCf131d768127B1fab6b109576C777EdD29323DA
-                        li Decimals: 18
-                        li Contract ABI (if needed) can be found at Etherscan and in our GitHub repository.
+            case ICOSTATUS.CURRENT
+                when ICOSTATUS.PRIVATE
+                when ICOSTATUS.BEFORE_PRE
+                when ICOSTATUS.PRE
+                when ICOSTATUS.BEFORE_PUBLIC
+                when ICOSTATUS.PUBLIC
+                when ICOSTATUS.AFTER
+                    +qa
+                        +q How can I see my tokens?
+                        +a You should add a custom token.
+                            ul
+                                li Symbol: SNEK
+                                li Token address:
+                                    = config.web3.contract_token
+                                li Decimals: 18
+                                li Contract ABI (if needed) can be found at Etherscan and in our GitHub repository.
 
             +qa
                 +q Can I trade tokens?
