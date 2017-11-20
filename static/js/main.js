@@ -31,6 +31,20 @@ $(function() {
     $('.button-contribute-close').on('click', function() {
         $('#contribute-form').hide();
     });
+
+    (function contract_clipboard() {
+        var sel = '.js-copy-address',
+            btn = $(sel);
+
+        var contractClipboard = new Clipboard(sel);
+        contractClipboard.on('success', function(e) {
+            e.clearSelection();
+        });
+
+        contractClipboard.on('error', function(e) {
+        });
+    })();
+
 });
 
 function daysBetween( date1, date2 ) {

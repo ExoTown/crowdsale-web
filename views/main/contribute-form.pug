@@ -43,7 +43,7 @@ div.contribute-form#contribute-form(style="display: none")
             span.js-contract-address= config.web3.contract_ico
             |
             |
-            a.js-copy-address.copy-address Copy
+            a.js-copy-address.copy-address(data-clipboard-target=".js-contract-address") Copy
 
         p(style="font-size: 0.8em") You may use any wallet that supports ERC-20 tokens. We recommend
             |
