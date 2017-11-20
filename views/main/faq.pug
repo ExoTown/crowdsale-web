@@ -1,0 +1,59 @@
+mixin qa
+    div
+        block
+mixin q
+    h3
+        block
+mixin a
+    p
+        block
+section#faq.main
+    header(style="background: #f8f8f8")
+        .container
+            h2 FAQ
+    .content.dark.style3
+        div(style="padding: 0 20px")
+            +qa
+                +q What is ExoTown?
+                +a ExoTown is a reptile breeding farm supported by cryptocommunity.
+
+            +qa
+                +q What is SNEK?
+                +a SNEK is an Ethereum ERC-20 compatible token. SNEK will allow you to buy animals and equipment in our stores, participate in ExoTown reptile auctions, and visit our showrooms around the world.
+
+            +qa
+                +q How to acquire SNEK?
+                +a You need a personal Ethereum wallet. During the ICO period, visit ExoTown website (https://exo.town), click "Contribute" and send some amount of ETH to the specified contract address. Tokens will be accrued to your wallet immediately after transaction will be confirmed.
+
+            +qa
+                +q What is gas limit?
+                +a We recommend to set gas limit to 150,000. Unused gas will return.
+
+            +qa
+                +q Are there any bonuses?
+                +a Volume bonus applies to any contribution above 10 ETH.
+                    ul
+                        li 10 ETH: +1% tokens
+                        li 20 ETH: +2% tokens
+                        li 50 ETH: +3% tokens
+                        li 100 ETH: +5% tokens
+                        li 300 ETH: +7% tokens
+                        li 500 ETH: +10% tokens
+
+            +qa
+                +q How can I see my tokens?
+                +a You should add a custom token.
+                    ul
+                        li Symbol: SNEK
+                        li Token address: 0xfCf131d768127B1fab6b109576C777EdD29323DA
+                        li Decimals: 18
+                        li Contract ABI (if needed) can be found at Etherscan and in our GitHub repository.
+
+            +qa
+                +q Can I trade tokens?
+                +a After the Public sale token will be tradeable. List of exchanges is to be announced later.
+
+            +qa
+                +q What is buyback?
+                +a ExoTown redeems and burns SNEK tokens by 25% of our profit every 3 months. Buyback price will be determined by exchange rate but no lower than Pre-sale price.
+
