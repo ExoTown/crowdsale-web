@@ -1,6 +1,8 @@
 /**
  * Created by d34thkn3ll on 31/10/2017.
  */
+var $window = $(window);
+
 $(function() {
     $('.js-reveal-offering-terms').on('click', function() {
         $('#offering-terms').removeClass('offer-private offer-pre offer-public offer-maintenance');
@@ -45,6 +47,25 @@ $(function() {
         });
     })();
 
+    /* Animations */
+
+    $('[data-onscroll]').each(function() {
+        var $this = $(this);
+        var onScroll = et.onScrolledIntoView($this);
+        onScroll.done(function() {
+            if ($this.data('class-add')) {
+                $this.addClass($this.data('class-add'));
+            }
+            if ($this.data('class-remove')) {
+                $this.removeClass($this.data('class-remove'));
+            }
+        })
+    });
+
+    setTimeout(function() {
+        $window.trigger('scroll');
+    }, 500);
+
 });
 
 function daysBetween( date1, date2 ) {
@@ -68,3 +89,32 @@ function daysBetween( date1, date2 ) {
 
     return days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
 }
+
+var ET = function() {
+    this.onScrolledIntoView = onScrolledIntoView;
+
+    function onScrolledIntoView($el) {
+        var $promise = $.Deferred();
+        var throttled = _.throttle(onScroll, 300);
+
+        $window.on('scroll', throttled);
+
+        $promise.done(function() {
+            $window.off('scroll', throttled);
+        });
+
+        function onScroll() {
+            var hT = $el.offset().top,
+                hH = $el.height(),
+                wH = $window.height(),
+                wS = $window.scrollTop();
+            if (wS + wH * 0.6 > hT) {
+                $promise.resolve();
+            }
+        }
+
+        return $promise;
+    }
+};
+
+var et = new ET();

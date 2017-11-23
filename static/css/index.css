@@ -4,6 +4,7 @@
     background-size: cover;
     background-color: rgba(0,0,0,0.6);
     background-blend-mode: darken;
+    background-attachment: fixed;
 }
 
 
@@ -166,7 +167,15 @@
 
 
 
-
+.op0 {
+    opacity: 0;
+}
+.scale120 {
+    transform: scale(1.2);
+}
+.transition-default {
+    transition: 1s;
+}
 
 
 
