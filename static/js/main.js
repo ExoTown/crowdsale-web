@@ -108,7 +108,7 @@ var ET = function() {
                 hH = $el.height(),
                 wH = $window.height(),
                 wS = $window.scrollTop();
-            if (wS + wH * 0.6 > hT) {
+            if (wS + wH * 0.9 > hT) {
                 $promise.resolve();
             }
         }
