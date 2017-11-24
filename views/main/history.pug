@@ -5,39 +5,60 @@ style.
     .table-history tr td {
         width: 50%;
         padding: 10px 20px;
+        border: none;
     }
     .table-history tr td:first-of-type {
         text-align: right;
     }
 
+    .progress-splitter {
+        width: 0px !important;
+        padding: 0 2px !important;
+        background: rgba(88, 205, 88, 0.2);
+    }
+
+    .progress-splitter--reached {
+        background: rgb(88, 205, 88);
+    }
+
+
 table.table-history
-    tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
+    tr.reached.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td July 2017
+        td.progress-splitter.progress-splitter--reached
         td The idea was born
-    tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
+    tr.reached.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td August—October 2017
+        td.progress-splitter.progress-splitter--reached
         td Forming the team
-    tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
+    tr.reached.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td October 2017
+        td.progress-splitter.progress-splitter--reached
         td First animals arrived
     tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td November 2017
+        td.progress-splitter
         td Crowdsale start
     tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td December 2017
+        td.progress-splitter
         td Move to a new place
     tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td January 2018
+        td.progress-splitter
         td ExoTown TV pilot
     tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td 2Q 2018
+        td.progress-splitter
         td Running a marketplace,
             br
             | forum, and encyclopedia
     tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td 3Q-4Q 2018
+        td.progress-splitter
         td Selling first breeded animals
     tr.transition-default.op0.scale120(data-onscroll="true" data-class-remove="op0 scale120")
         td 2019
+        td.progress-splitter
         td Building showroom
 

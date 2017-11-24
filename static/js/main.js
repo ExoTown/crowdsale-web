@@ -59,6 +59,9 @@ $(function() {
             if ($this.data('class-remove')) {
                 $this.removeClass($this.data('class-remove'));
             }
+            setTimeout(function() {
+                $this.removeClass('transition-default');
+            }, 1500);
         })
     });
 
