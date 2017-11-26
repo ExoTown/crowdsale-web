@@ -55,9 +55,15 @@ section#faq.main
                             ul
                                 li Symbol: SNEK
                                 li Token address:
+                                    |
+                                    |
                                     = config.web3.contract_token
                                 li Decimals: 18
-                                li Contract ABI (if needed) can be found at Etherscan and in our GitHub repository.
+                                li Contract ABI (if needed) can be found at
+                                    a(target="_blank" href="https://etherscan.io/address/" + config.web3.contract_token + "#code")  Etherscan
+                                    |  and in our
+                                    a(target="_blank" href="https://github.com/ExoTown")  GitHub
+                                    |  repository.
 
             +qa
                 +q Can I trade tokens?
