@@ -129,6 +129,14 @@ $(function() {
         $window.trigger('scroll');
     }, 500);
 
+    /* Metrika */
+    $('.ym-learn-more').on('click', function() { yaCounter46706040.reachGoal('ym_learn_more'); });
+    $('.ym-help-grow').on('click', function() { yaCounter46706040.reachGoal('ym_help_grow'); });
+    $('.ym-whitepaper').on('click', function() { yaCounter46706040.reachGoal('ym_whitepaper'); });
+    $('.ym-telegram').on('click', function() { yaCounter46706040.reachGoal('ym_telegram'); });
+    $('.ym-contribute-click').on('click', function() { yaCounter46706040.reachGoal('ym_contribute_click'); });
+    $('.ym-subscribe').on('click', function() { yaCounter46706040.reachGoal('ym_subscribe'); });
+
 });
 
 function daysBetween( date1, date2 ) {
