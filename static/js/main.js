@@ -58,6 +58,7 @@ $(function() {
         }
 
         button.on('click', function() {
+            if (localStorage.getItem("subscribed")) return false;
             var addr = email.val().trim();
             subscribe(addr);
         });
