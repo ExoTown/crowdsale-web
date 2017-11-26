@@ -26,6 +26,7 @@
     "http": "0.0.0",
     "js-sha3": "^0.6.1",
     "litecore": "^4.1.10",
+    "mailgun-js": "^0.13.1",
     "minimist": "^1.2.0",
     "moment": "^2.18.1",
     "node-static": "^0.7.9",

@@ -9,6 +9,10 @@ var uuid = require('node-uuid');
 var request = require('request');
 var router = express.Router();
 var config = require('./../modules/config.js');
+var Mailgun = require('mailgun-js');
+
+var mg_key = config.mailgun.api_key,
+    mg_domain = 'exo.town';
 
 var ERR = {
     ALREADY_EXIST: '23505'
@@ -24,46 +28,17 @@ router.post('/', function (req, res) {
 
     console.log('New subscription ' + body.email);
 
-    successHandler();
+    res.status(200).json({ "status": "ok" });
 
-    function successHandler() {
-        res.status(200).json({ "status": "ok" });
+    console.log('mailgun...');
+    var mailgun = new Mailgun({ apiKey: mg_key, domain: mg_domain });
 
-        console.log('sending to mailchimp...');
+    mailgun.lists('subscribers@exo.town').members().add({ members: [{ address: body.email }], subscribed: true, upsert: false }, function (err, body) {
+        console.log(body);
+        if (err) console.log('error', err);
+        else console.log('success', body);
+    });
 
-        var mailchimpApiKey = config.mailchimp.api_key;
-
-        request({
-            url: config.mailchimp.list,
-            method: 'POST',
-            json: true,
-            body: {
-                "email_address": body.email,
-                "status": "subscribed"
-            },
-            auth: {
-                'user': 'username',
-                'pass': mailchimpApiKey
-            }
-        }, function(err, resp, resp_body) {
-            if (resp_body.status === 400)
-                console.log(resp_body.detail);
-            else
-                console.log(resp_body.email_address + ' ' + resp_body.status);
-        });
-
-
-    }
-
-    function errorHandler(err) {
-        if (err.code === ERR.ALREADY_EXIST) { // email already exist, it's ok for us
-            console.log('...is not new actually');
-            res.status(200).json({ "status": "ok" });
-        } else {
-            console.log('...failed', err);
-            res.status(500).json({ "status": "Internal Server Error" });
-        }
-    }
 });
 
 function isEmailValid(email) {
