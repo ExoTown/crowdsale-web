@@ -1,4 +1,9 @@
 include logic/ico.pug
+mixin css(src)
+    link(rel='stylesheet' href=src+"?"+postfix)
+
+mixin js(src)
+    script(src=src+"?"+postfix)
 doctype html
 //
   Tessellate by HTML5 UP
@@ -9,14 +14,17 @@ html
         title ExoTown
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        //if lte IE 8
-          script(src='assets/js/ie/html5shiv.js')
-        link(rel='stylesheet', href='assets/css/main.css')
-        link(rel='stylesheet', href='css/index.css')
-        //if lte IE 8
-          link(rel='stylesheet', href='assets/css/ie8.css')
-        //if lte IE 9
-          link(rel='stylesheet', href='assets/css/ie9.css')
+        <!--[if lte IE 8]>
+        script(src='assets/js/ie/html5shiv.js')
+        <![endif]-->
+        +css('assets/css/main.css')
+        +css('css/index.css')
+        <!--[if lte IE 8]>
+        +css('assets/css/ie8.css')
+        <![endif]-->
+        <!--[if lte IE 9]>
+        +css('assets/css/ie9.css')
+        <![endif]-->
         include yametrika.pug
     body
         include main/header.pug
@@ -40,14 +48,15 @@ html
 
 
     // Scripts
-    script(src='assets/js/jquery.min.js')
-    script(src='assets/js/jquery.scrolly.min.js')
-    script(src='assets/js/skel.min.js')
-    script(src='js/underscore-min.js')
-    script(src='assets/js/util.js')
-    //if lte IE 8
-      script(src='assets/js/ie/respond.min.js')
-    script(src='assets/js/main.js')
-    script(src='js/clipboard.min.js')
-    script(src='js/main.js')
+    +js('assets/js/jquery.min.js')
+    +js('assets/js/jquery.scrolly.min.js')
+    +js('assets/js/skel.min.js')
+    +js('js/underscore-min.js')
+    +js('assets/js/util.js')
+    <!--[if lte IE 8]>
+    +js('assets/js/ie/respond.min.js')
+    <![endif]-->
+    +js('assets/js/main.js')
+    +js('js/clipboard.min.js')
+    +js('js/main.js')
 
