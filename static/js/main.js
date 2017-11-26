@@ -47,6 +47,65 @@ $(function() {
         });
     })();
 
+    /* Subscribe */
+
+    (function() {
+        var button = $('.js-subscribe-btn'),
+            email = $('.js-subscribe-email');
+
+        if (localStorage.getItem("subscribed")) {
+            subscribed();
+        }
+
+        button.on('click', function() {
+            var addr = email.val().trim();
+            subscribe(addr);
+        });
+
+        email.keypress(function(e) {
+            if(e.which === 13) {
+                e.preventDefault();
+                button.trigger('click');
+            }
+        });
+
+        function subscribed() {
+            button.off("click", subscribe);
+            email.hide();
+            button.val("Subscribed");
+            $('#subscribe-form').addClass('subscribed');
+
+            $('.subscribe-email-cont').hide();
+
+            email.removeClass("incorrect");
+            localStorage.setItem("subscribed", true);
+        }
+
+        function subscribe(addr) {
+            if (subscribe.pending) return false;
+            subscribe.pending = true;
+
+            email.removeClass("incorrect");
+            button.addClass("pending");
+
+            $.ajax({
+                type: "POST",
+                url: '/subscribe',
+                dataType: 'json',
+                data: {
+                    email: addr
+                }
+            }).done(function() {
+                subscribed();
+            }).fail(function() {
+                email.addClass("incorrect");
+            }).always(function() {
+                subscribe.pending = false;
+                button.removeClass("pending");
+            });
+        }
+    })();
+
     /* Animations */
 
     $('[data-onscroll]').each(function() {

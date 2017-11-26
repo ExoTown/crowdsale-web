@@ -15,12 +15,14 @@ app.use(bodyParser.json({
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use('/subscribe', require('./controllers/subscribe.js'));
 // app.use('/feedback', require('./controllers/feedback.js'));
 // app.use('/api/ico', require('./controllers/ico.js'));
 // app.use('/api', require('./controllers/api.js'));
 // app.use('/user', require('./controllers/user.js'));
 // app.use('/invite', require('./controllers/referrals.js'));
+
+app.use('/subscribe', require('./controllers/subscribe.js'));
+
 app.use(express.static(config.path, { index: 'index.html' }));
 
 app.use('/', require('./controllers/site.js'));
