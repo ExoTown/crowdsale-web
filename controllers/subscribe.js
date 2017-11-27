@@ -33,7 +33,7 @@ router.post('/', function (req, res) {
     console.log('mailgun...');
     var mailgun = new Mailgun({ apiKey: mg_key, domain: mg_domain });
 
-    mailgun.lists('subscribers@exo.town').members().add({ members: [{ address: body.email }], subscribed: true, upsert: false }, function (err, body) {
+    mailgun.lists('new_subscribers@exo.town').members().add({ members: [{ address: body.email }], subscribed: true, upsert: false }, function (err, body) {
         console.log(body);
         if (err) console.log('error', err);
         else console.log('success', body);
