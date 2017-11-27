@@ -44,11 +44,12 @@ div.contribute-form#contribute-form(style="display: none")
             |
             |
             a.js-copy-address.copy-address(data-clipboard-target=".js-contract-address") Copy
-
+        p.text-center Gas limit:
+            b  200,000
         p(style="font-size: 0.8em") You may use any wallet that supports ERC-20 tokens. We recommend
             |
             |
-            a(href="https://www.myetherwallet.com/?to=" + config.web3.contract_ico + "&value=10&gaslimit=150000#send-transaction" target="_blank") MyEtherWallet
+            a(href="https://www.myetherwallet.com/?to=" + config.web3.contract_ico + "&value=10&gaslimit=200000#send-transaction" target="_blank") MyEtherWallet
             br
             <strong>Do not</strong> send ETH directly from exchanges (Kraken, Poloniex, Coinbase, etc.), multi-sig wallets, or from other smart contracts, as you will not be able to access your SNEK.
 
