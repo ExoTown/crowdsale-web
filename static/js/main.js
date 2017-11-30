@@ -137,6 +137,22 @@ $(function() {
     $('.ym-contribute-click').on('click', function() { yaCounter46706040.reachGoal('ym_contribute_click'); });
     $('.ym-subscribe').on('click', function() { yaCounter46706040.reachGoal('ym_subscribe'); });
 
+    (function() {
+        var bg = 0.6;
+        var $header = $('#header');
+
+        $window.on('scroll', function() {
+            $('#header header > img').css({'transform': 'translateY(' + -Math.min(Math.exp($window.scrollTop() / 60), 10000) + 'px)'});
+            $('#header header > p').css({'transform': 'translateY(' + -Math.min(Math.exp($window.scrollTop() / 80), 10000) + 'px)'});
+            $('#header footer').css({'transform': 'translateY(' + -Math.min(Math.exp($window.scrollTop() / 100), 10000) + 'px)'});
+
+
+            var b = Math.min(Math.exp($window.scrollTop() / 3 / $header.outerHeight()) * bg, 1);
+
+            $('#header').css({'background-color': 'rgba(0,0,0,' + b + ')'})
+        });
+    })();
+
 });
 
 function daysBetween( date1, date2 ) {
